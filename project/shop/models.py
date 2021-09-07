@@ -21,6 +21,10 @@ class Product(models.Model):
     price = models.BigIntegerField(verbose_name='Ціна')
     category = models.ForeignKey(verbose_name='Категорія', to=Category, on_delete=models.SET_NULL, null=True)
 
+    class Meta:
+        verbose_name = 'продукт'
+        verbose_name_plural = 'продукти'
+
 
 class Order(models.Model):
     id = models.BigIntegerField(verbose_name='Айди', primary_key=True, unique=True)
@@ -30,4 +34,8 @@ class Order(models.Model):
     address = models.TextField(verbose_name='Адреса доставки')
     is_completed = models.BooleanField(verbose_name='Прапорець “виконання”')
     created_date = models.DateTimeField(verbose_name='Дата створення замовлення', auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'замовлення'
+        verbose_name_plural = 'замовлення'
 
