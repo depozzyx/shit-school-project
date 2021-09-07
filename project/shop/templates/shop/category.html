@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+<!--  -->
+{% block title_top %} Категорiя {{ category.name }} {% endblock %}
+<!--  -->
+{% block title_page %} {{ category.name }} {% endblock %}
+<!--  -->
+
+{% block content %}
+<table class="table table-hover">
+    <colgroup>
+        <col span="1" />
+        <col span="1" />
+        <col span="1" />
+        <col span="1" style="width: 10%" />
+    </colgroup>
+    <thead class="bg-primary" style="color: white">
+        <tr>
+            <th scope="col">Назва</th>
+            <th>Опис</th>
+            <th>Цiна</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+        <tr>
+            <th scope="row">{{ product.name }}</th>
+            <td>{{ product.description|striptags|truncatechars:20 }}</td>
+            <td>{{ product.price }}</td>
+            <td>
+                <a href="/order/{{ product.id }}/" class="btn">Замовити</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    <a type="button" class="btn btn-primary" href="/">Назад</a>
+</table>
+{% endblock %}
