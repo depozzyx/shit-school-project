@@ -19,5 +19,5 @@ class Order(models.Model):
     email = models.CharField(verbose_name='Email користувача', max_length=255)
     address = models.TextField(verbose_name='Адреса доставки')
     is_completed = models.BooleanField(verbose_name='Прапорець “виконання”')
-    created_date = models.DateTimeField()
+    created_date = models.DateTimeField(verbose_name='Дата створення замовлення', auto_now_add=True)
 
