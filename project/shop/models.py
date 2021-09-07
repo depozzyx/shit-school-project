@@ -10,8 +10,8 @@ class Category(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = 'категорiя'
-        verbose_name_plural = 'Пользователи'
+        verbose_name = 'категорія'
+        verbose_name_plural = 'категорії'
 
 
 class Product(models.Model):
