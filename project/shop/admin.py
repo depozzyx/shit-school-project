@@ -10,6 +10,11 @@ class View:
         return obj, ViewAll
 
 
+class ViewOrder(admin.ModelAdmin):
+    list_display = ('product', 'is_completed', 'created_date')
+    ordering = ("is_completed", "created_date")
+
+
 admin.site.register(*View(Category))
 admin.site.register(*View(Product))
-admin.site.register(*View(Order))
+admin.site.register(Order, ViewOrder)
