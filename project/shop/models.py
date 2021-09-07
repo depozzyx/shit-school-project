@@ -3,10 +3,19 @@ from ckeditor.fields import RichTextField
 
 
 class Category(models.Model):
+    id = models.BigIntegerField(verbose_name='Айди', primary_key=True, unique=True)
     name = models.CharField(verbose_name='Назва', max_length=255, unique=True,)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'категорiя'
+        verbose_name_plural = 'Пользователи'
 
 
 class Product(models.Model):
+    id = models.BigIntegerField(verbose_name='Айди', primary_key=True, unique=True)
     name = models.CharField(verbose_name='Назва', max_length=255)
     description = RichTextField(verbose_name='Опис')
     price = models.BigIntegerField(verbose_name='Ціна')
@@ -14,6 +23,7 @@ class Product(models.Model):
 
 
 class Order(models.Model):
+    id = models.BigIntegerField(verbose_name='Айди', primary_key=True, unique=True)
     product = models.ForeignKey(verbose_name='Товар', to=Product, on_delete=models.SET_NULL, null=True)
     number = models.CharField(verbose_name='Телефон користувача', max_length=255)
     email = models.CharField(verbose_name='Email користувача', max_length=255)
